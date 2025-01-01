@@ -12,36 +12,28 @@ import yan.lx.bedrockminer.command.commands.TaskCommand;
 import yan.lx.bedrockminer.task.TaskManager;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.literal;
+import static yan.lx.bedrockminer.BedrockMiner.*;
 
 public class CommandManager {
+    private static final List<CommandBase> commands = Arrays.asList(
+            new BehaviorCommand(),
+            new DebugCommand(),
+            new TaskCommand(),
+            new DisableCommand()
+    );
 
-    private static final ArrayList<CommandBase> commands;
 
-    static {
-        commands = new ArrayList<>();
-        commands.add(new BehaviorCommand());
-        commands.add(new DebugCommand());
-        commands.add(new TaskCommand());
-        commands.add(new DisableCommand());
-    }
-
-    private static String getCommandPrefix() {
-        return BedrockMiner.COMMAND_PREFIX;
-    }
-
-    public static void init() {
-        // 开始注册
+    public static void registerCommands() {
         ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
-            // 子命令
             for (var command : commands) {
                 command.register(dispatcher, registryAccess);
             }
-            // 主命令执行
-            var root = literal(getCommandPrefix()).executes(CommandManager::executes);
-            // 测试命令
-            if (BedrockMiner.TEST) {
+            var root = literal(COMMAND_PREFIX).executes(CommandManager::executes);
+            if (TEST) {
                 Test.register(root);
             }
             dispatcher.register(root);

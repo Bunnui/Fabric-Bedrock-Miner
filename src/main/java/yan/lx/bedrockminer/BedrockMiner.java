@@ -33,8 +33,8 @@ public class BedrockMiner implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        initGameVariable();
-        CommandManager.init();
+        initGameVariable(); // 初始化游戏变量, 后续更新交给客户端玩家交互管理器mixin进行更新
+        CommandManager.registerCommands();
         Debug.alwaysWrite("模组初始化成功");
     }
 
