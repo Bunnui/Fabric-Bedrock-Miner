@@ -11,10 +11,8 @@ import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.minecraft.block.Block;
 import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 import yan.lx.bedrockminer.LanguageText;
-import yan.lx.bedrockminer.utils.BlockUtils;
 import yan.lx.bedrockminer.utils.StringReaderUtils;
 
 import java.util.Arrays;

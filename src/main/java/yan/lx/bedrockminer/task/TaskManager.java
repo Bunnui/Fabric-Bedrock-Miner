@@ -6,8 +6,6 @@ import net.minecraft.client.world.ClientWorld;
 import net.minecraft.item.Items;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
-import yan.lx.bedrockminer.Debug;
-import yan.lx.bedrockminer.LanguageText;
 import yan.lx.bedrockminer.config.Config;
 import yan.lx.bedrockminer.utils.BlockUtils;
 import yan.lx.bedrockminer.utils.InventoryManagerUtils;
@@ -19,7 +17,6 @@ import java.util.List;
 import static yan.lx.bedrockminer.BedrockMiner.gameMode;
 import static yan.lx.bedrockminer.BedrockMiner.world;
 import static yan.lx.bedrockminer.LanguageText.*;
-import static yan.lx.bedrockminer.utils.BlockUtils.getBlockName;
 import static yan.lx.bedrockminer.utils.InteractionUtils.getClosestFace;
 import static yan.lx.bedrockminer.utils.InteractionUtils.isBlockWithinReach;
 
@@ -136,12 +133,6 @@ public class TaskManager {
                 if (BlockUtils.getBlockId(block).equals(defaultBlockBlack)) {
                     return false;
                 }
-            }
-        }
-        // 方块黑名单检查(用户自定义)
-        for (var blockBlack : config.blockBlacklist) {
-            if (BlockUtils.getBlockId(block).equals(blockBlack)) {
-                return false;
             }
         }
         // 方块白名单检查(用户自定义)

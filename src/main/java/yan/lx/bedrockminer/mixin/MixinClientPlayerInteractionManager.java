@@ -1,4 +1,4 @@
-package yan.lx.bedrockminer.mixins;
+package yan.lx.bedrockminer.mixin;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;

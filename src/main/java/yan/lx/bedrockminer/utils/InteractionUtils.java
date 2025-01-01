@@ -24,7 +24,6 @@ import java.util.List;
 import java.util.function.Consumer;
 
 import static yan.lx.bedrockminer.BedrockMiner.*;
-import static yan.lx.bedrockminer.BedrockMiner.interactionManager;
 
 public class InteractionUtils {
     private static @Nullable Consumer<BlockPos> beforeBlockDestroyPacket;

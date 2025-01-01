@@ -3,16 +3,14 @@ package yan.lx.bedrockminer;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
-import net.minecraft.util.math.Direction;
 import yan.lx.bedrockminer.command.argument.BlockPosArgumentType;
-import yan.lx.bedrockminer.utils.BlockPlacerUtils;
 
 import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.argument;
 import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.literal;
-import static yan.lx.bedrockminer.BedrockMiner.*;
+import static yan.lx.bedrockminer.BedrockMiner.crosshairTarget;
+import static yan.lx.bedrockminer.BedrockMiner.world;
 
 public class Test {
 
@@ -36,4 +34,6 @@ public class Test {
         var blockPos = BlockPosArgumentType.getBlockPos(context, "blockPos");
         return 0;
     }
+
+
 }

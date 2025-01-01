@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Blocks;
+import net.minecraft.util.math.Direction;
 import yan.lx.bedrockminer.Debug;
 import yan.lx.bedrockminer.utils.BlockUtils;
 
@@ -16,12 +17,13 @@ public class Config {
     public static final Config INSTANCE = Config.load();
     public boolean disable = false;
     public boolean debug = false;
-    public boolean vertical = true;
-    public boolean horizontal = true;
-    public int taskLimit = 1;
+    public int taskTicksTotalMax = 200;
+    public int taskTicksTimeoutMax = 30;
+    public int taskRetryMax = 2;
+    public Direction[] pistonDirections = new Direction[]{Direction.UP, Direction.DOWN, Direction.NORTH, Direction.SOUTH, Direction.WEST, Direction.EAST};
+    public Direction[] facingDirections = new Direction[]{Direction.UP, Direction.DOWN, Direction.NORTH, Direction.SOUTH, Direction.WEST, Direction.EAST};
     public List<Integer> floorsBlacklist = new ArrayList<>();
     public List<String> blockWhitelist = getDefaultBlockWhitelist();
-    public List<String> blockBlacklist = new ArrayList<>();
     public transient List<String> blockBlacklistServer = getDefaultBlockBlacklistServer();
 
     public static List<String> getDefaultBlockWhitelist() {

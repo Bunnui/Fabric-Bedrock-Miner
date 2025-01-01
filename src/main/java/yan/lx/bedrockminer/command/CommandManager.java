@@ -3,7 +3,6 @@ package yan.lx.bedrockminer.command;
 import com.mojang.brigadier.context.CommandContext;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
-import yan.lx.bedrockminer.BedrockMiner;
 import yan.lx.bedrockminer.Test;
 import yan.lx.bedrockminer.command.commands.BehaviorCommand;
 import yan.lx.bedrockminer.command.commands.DebugCommand;
@@ -11,12 +10,12 @@ import yan.lx.bedrockminer.command.commands.DisableCommand;
 import yan.lx.bedrockminer.command.commands.TaskCommand;
 import yan.lx.bedrockminer.task.TaskManager;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.literal;
-import static yan.lx.bedrockminer.BedrockMiner.*;
+import static yan.lx.bedrockminer.BedrockMiner.COMMAND_PREFIX;
+import static yan.lx.bedrockminer.BedrockMiner.TEST;
 
 public class CommandManager {
     private static final List<CommandBase> commands = Arrays.asList(
