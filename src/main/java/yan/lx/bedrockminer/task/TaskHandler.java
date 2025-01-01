@@ -362,7 +362,7 @@ public class TaskHandler {
         var player = MinecraftClient.getInstance().player;
         if (!recycledQueue.isEmpty() && player != null) {
             var blockPos = recycledQueue.peek();
-            BlockBreakerUtils.updateBlockBreakingProgress(blockPos);
+            InteractionUtils.updateBlockBreakingProgress(blockPos);
             var blockState = world.getBlockState(blockPos);
             if (blockState.calcBlockBreakingDelta(player, world, blockPos) < 1F) {
                 InventoryManagerUtils.autoSwitch(blockState);
@@ -406,13 +406,13 @@ public class TaskHandler {
             BlockPos[] nearbyRedstoneTorch = TaskSeekSchemeTools.findPistonNearbyRedstoneTorch(piston.pos, world);
             for (BlockPos pos : nearbyRedstoneTorch) {
                 if (world.getBlockState(pos).getBlock() instanceof RedstoneTorchBlock) {
-                    BlockBreakerUtils.attackBlock(pos);
+                    InteractionUtils.attackBlock(pos);
                 }
             }
             if (world.getBlockState(redstoneTorch.pos).getBlock() instanceof RedstoneTorchBlock) {
-                BlockBreakerUtils.attackBlock(redstoneTorch.pos);
+                InteractionUtils.attackBlock(redstoneTorch.pos);
             }
-            BlockBreakerUtils.attackBlock(piston.pos);
+            InteractionUtils.attackBlock(piston.pos);
             BlockPlacerUtils.placement(piston.pos, direction.getOpposite(), Items.PISTON);
             addRecycled(piston.pos);
             if (executeModify) {
